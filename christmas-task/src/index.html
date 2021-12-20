@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&amp;display=swap" rel="stylesheet">
+    <title>Christmas-tree</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a class="logo nav-element"></a>
+            <div class="nav-element">
+               Игрушки
+            </div>
+            <div class="nav-element">
+               Елка
+            </div>
+        </nav>
+          <div class="search-bar">
+            <input type="search" class="search" autocomplete="off">
+            <div class="favorites-counter">
+                <span></span>
+            </div>
+          </div>  
+    </header>
+    <main>
+        <div class="main-container">
+            <div class="options-container">
+                <div class="filters-container">
+                    <p>Фильтры по значению</p>
+                    <div class="form-buttons-container">
+                        Форма:  
+                        <button data-value="шар"></button>
+                        <button data-value="колокольчик"></button>
+                        <button data-value="шишка"></button>
+                        <button data-value="снежинка"></button>
+                        <button data-value="игрушка"></button>
+                    </div>
+                    <div class="color-buttons-container">
+                        Цвет:
+                        <button data-value="белый"></button>
+                        <button data-value="желтый"></button>
+                        <button data-value="красный"></button>
+                        <button data-value="синий"></button>
+                        <button data-value="зеленый"></button>
+                    </div>
+                    <div class="size-buttons-container">
+                        Размер:
+                        <button data-value="большой"></button>
+                        <button data-value="средний"></button>
+                        <button data-value="малый"></button>
+                    </div>
+                    <div class="favorite-container">
+                        Любимые:
+                        <input type="checkbox" class="favorite" id="favorite">
+                        <label for="checkbox" class="favorite-label"></label> 
+                    </div>
+                </div>
+                <div class="selectors-container">
+
+                </div>
+                <div class="sorting-container">
+
+                </div>
+            </div>    
+            <div class="cards-container">
+              12
+            </div>
+        </div>    
+    </main>
+</body>
+<script src="./index.js"></script>
+</html>
