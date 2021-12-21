@@ -3,7 +3,7 @@ const { merge } = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const baseConfig = {
     entry: path.resolve(__dirname, './src/index.ts'),
@@ -43,7 +43,7 @@ const baseConfig = {
         }),
         new CopyWebpackPlugin({
             patterns: [{ from: 'src/assets', to: 'assets' }]
-        })
+        }),
     ],
 };
 

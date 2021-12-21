@@ -59,14 +59,30 @@
                     </div>
                 </div>
                 <div class="selectors-container">
-
+                    ФИЛЬТРЫ ПО ДИАПАЗОНУ
+                    <div class="selector-box">
+                        <div class="count-container">
+                            Количество экземпляров:
+                            <input type="range" id="count" name="count" min="1" max="12">
+                        </div>
+                        <div class="year-container">
+                            Количество экземпляров:
+                            <input type="range" id="year" name="year" min="1940" max="2020">
+                        </div>
+                    </div>
                 </div>
                 <div class="sorting-container">
-
+                    Сортировка
+                    <select class="sort">
+                        <option selected="" value="sort-name-up">По названию от «А» до «Я»</option>
+                        <option value="sort-name-down">По названию от «Я» до «А»</option>
+                        <option value="sort-count-up">По количеству по возрастанию</option>
+                        <option value="sort-count-down">По количеству по убыванию</option>
+                      </select>
+                      <button class="reset">Сброс Фильтров</button>
                 </div>
             </div>    
             <div class="cards-container">
-                Извините, совпадений не обнаружено
             </div>
         </div>    
     </main>

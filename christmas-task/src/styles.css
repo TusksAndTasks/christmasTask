@@ -215,7 +215,8 @@ main{
 .selectors-container{
     display: flex;
     flex-flow: column;
-    justify-content: space-between;
+    justify-content: space-around;
+    align-items: center;
     width: 30%;
     height: 40vh;
     background-color: #278d9f8e ;
@@ -233,6 +234,7 @@ main{
     display: flex;
     flex-flow: column;
     justify-content: space-between;
+    align-items: center;
     width: 30%;
     height: 40vh;
     background-color: #278d9f8e ;
@@ -325,4 +327,48 @@ main{
 .color-buttons-container button.active:nth-child(1)::after,
 .color-buttons-container button.active:nth-child(2)::after{
     border-color: #000;
+}
+
+.selector-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.count-container,
+.year-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sort{
+    appearance: none;
+    padding-left: 10px;
+    border: solid 1px white;
+    font: inherit;
+    width: 400px;
+    height: 40px;
+    background-color: rgba(31, 112, 127, .3);
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    border: 1px solid #278D9F;
+    font-size: 20px;
+    color: #fff;
+}
+
+.reset{
+    appearance: none;
+    padding-left: 10px;
+    border: solid 1px white;
+    font: inherit;
+    width: 400px;
+    height: 40px;
+    background-color: rgba(31, 112, 127, .3);
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    border: 1px solid #278D9F;
+    font-size: 20px;
+    color: #fff;
 }
