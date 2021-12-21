@@ -252,7 +252,7 @@ main{
     margin-top: 20px;
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
+    justify-content: start;
     min-height: 50vh;
     background-color: #278d9f1f ;
     border: solid 1px white;
@@ -263,7 +263,7 @@ main{
     padding: 10px;
     color: white;
     font-size: 14px;
-    gap: 20px 0;
+    gap: 20px 5%;
 }
 
 .card{
@@ -299,4 +299,30 @@ main{
 .favorite-button{
     width: 40px;
     height: 40px;
+    background-color: rgb(42, 142, 160);
+    border-radius: 50%;
+}
+
+.active{
+    filter: brightness(0.5) sepia(0.5) saturate(10000%) hue-rotate(48deg) saturate(300%) brightness(150%);;
+}
+
+.color-buttons-container button.active{
+    filter: none;
+}
+
+.color-buttons-container button.active::after{
+        content: '';
+        display: block;
+        position: relative;
+        bottom: 2px;
+        height: 12px;
+        border: solid #fff;
+        border-width: 0 4px 4px 0;
+        transform: rotate(45deg);
+}
+
+.color-buttons-container button.active:nth-child(1)::after,
+.color-buttons-container button.active:nth-child(2)::after{
+    border-color: #000;
 }

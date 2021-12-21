@@ -34,8 +34,9 @@ export class Constructor {
             </div>
             </div>
             ` 
-            console.log(data.num);
         } )
+
+        if(data.length === 0){content = 'Извините, совпадений не обнаружено'}
 
         cardsContainer.innerHTML = content;
 

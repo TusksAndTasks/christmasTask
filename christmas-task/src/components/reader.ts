@@ -1,5 +1,6 @@
 import data from '../data'
 import { mainData } from './interfaces'
+import { Filter } from './filter'
 
 export class Reader {
     private data: mainData[]
@@ -9,7 +10,8 @@ export class Reader {
     }
 
     read(){
-        let currentData: mainData[] = this.data;
+        let filter = new Filter;
+        let currentData: mainData[] = filter.createFilteredData(this.data);
         return currentData;
     }
 }
