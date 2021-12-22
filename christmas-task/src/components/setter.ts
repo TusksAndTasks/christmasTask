@@ -13,6 +13,7 @@ export class Setter{
         const sizeButtons =  Array.from(document.querySelectorAll('.size-buttons-container button'));
         const favoriteCheckbox = document.querySelector('.favorite') as HTMLInputElement;
         const sortingInput = document.querySelector('.sort') as HTMLSelectElement;
+        const resetButton = document.querySelector('.reset') as HTMLElement;
 
         let ranges = Array.from(document.querySelectorAll('input[type=range]'));
         let countNumber = document.querySelector('.counter-number') as HTMLElement;
@@ -62,6 +63,42 @@ export class Setter{
         })
 
         favoriteCheckbox.addEventListener('change', function(){
+            setterConstructor.createCards(); 
+        })
+
+
+        resetButton.addEventListener('click', function(){
+    
+            shapeButtons.forEach((button: Element): void => {
+                if((button as HTMLElement).classList.contains('active')){
+                    (button as HTMLElement).classList.remove('active');
+                }
+            }); 
+            
+            colorButtons.forEach((button: Element): void => {
+                if((button as HTMLElement).classList.contains('active')){
+                    (button as HTMLElement).classList.remove('active');
+                }
+            });
+            
+            sizeButtons.forEach((button: Element): void => {
+                if((button as HTMLElement).classList.contains('active')){
+                    (button as HTMLElement).classList.remove('active');
+                }
+            }); 
+            
+            if(favoriteCheckbox.checked){
+                favoriteCheckbox.checked = false;
+            };
+            
+            (ranges[0] as HTMLInputElement).value = '12'; 
+            (ranges[0] as HTMLInputElement).style.background = `linear-gradient(to right, #278D9F 0%, #278D9F 100%, #C4C4C4 100%, #C4C4C4 100%)`;
+            countNumber.textContent = `12`;
+
+            (ranges[1] as HTMLInputElement).value = '2020'; 
+            (ranges[1] as HTMLInputElement).style.background = `linear-gradient(to right, #278D9F 0%, #278D9F 100%, #C4C4C4 100%, #C4C4C4 100%)`;
+            yearNumber.textContent = `2020`;
+
             setterConstructor.createCards(); 
         })
     }
