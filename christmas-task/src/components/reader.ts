@@ -2,6 +2,7 @@ import data from '../data';
 import { mainData } from './interfaces';
 import { Filter } from './filter';
 import { SliderFilter } from './slide-filter';
+import { Sorter } from './sorter';
 
 export class Reader {
     private data: mainData[]
@@ -13,8 +14,10 @@ export class Reader {
     read(){
         let filter = new Filter;
         let sliderFilter = new SliderFilter;
+        let sorter = new Sorter;
         let currentData: mainData[] = filter.createFilteredData(this.data);
         currentData = sliderFilter.createFilteredData(currentData);
+        currentData = sorter.createSortedData(currentData);
         return currentData;
     }
 }
