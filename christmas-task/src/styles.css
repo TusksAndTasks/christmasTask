@@ -40,15 +40,20 @@ nav{
     margin: 10px 0;
     margin-right: 30px;
     border-radius: 20px;
-    border: 1px solid #278D9F;
+    border: 1px solid #FFF;
     color: #fff;
     font-size: 18px;
-    background-color: rgba(31, 112, 127, .3);
+    background-color: rgba(35, 100, 120, .3);
     background-image: url("assets/svg/search.svg");
     background-size: 20px;
     background-repeat: no-repeat;
     background-position: 330px center;
     backdrop-filter: blur(6px);
+}
+
+.search:active,
+.search:hover{
+    background-image: none;
 }
 
 .favorites-counter{
@@ -415,4 +420,17 @@ input[type=range]::-webkit-slider-thumb{
    flex-flow: row;
    justify-content: space-around;
    align-items: center;
+}
+
+button:hover{
+   cursor: pointer;
+}
+
+.reset:hover{
+   filter: grayscale(20%) sepia(0.5);
+}
+
+.sort:hover{
+   filter: grayscale(20%) sepia(0.5);
+   cursor: pointer;
 }
