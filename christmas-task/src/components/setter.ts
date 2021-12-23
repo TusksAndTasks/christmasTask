@@ -14,12 +14,13 @@ export class Setter{
         const favoriteCheckbox = document.querySelector('.favorite') as HTMLInputElement;
         const sortingInput = document.querySelector('.sort') as HTMLSelectElement;
         const resetButton = document.querySelector('.reset') as HTMLElement;
+        const search = document.querySelector('.search') as HTMLInputElement;
 
         let ranges = Array.from(document.querySelectorAll('input[type=range]'));
         let countNumber = document.querySelector('.counter-number') as HTMLElement;
         let yearNumber = document.querySelector('.year-number') as HTMLElement;
 
-  
+             search.addEventListener('input', function(){setterConstructor.createCards(); });
               
              (ranges[0] as HTMLInputElement).addEventListener("input", function(){
                 let value = (ranges[0] as HTMLInputElement).value;
