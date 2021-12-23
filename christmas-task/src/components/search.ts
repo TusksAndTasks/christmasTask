@@ -5,7 +5,7 @@ export class Search{
 
     }
 
-    createSearchedData(currentData: mainData[]){
+    createSearchedData(currentData: mainData[]): mainData[]{
                  
       let search = document.querySelector('.search') as HTMLInputElement;
       let searchedData: mainData[] = [];

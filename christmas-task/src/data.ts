@@ -1,4 +1,7 @@
-export const data = [
+import { mainData } from "./components/interfaces";
+
+
+export const data: mainData[] = [
   {
     num: '1',
     name: 'Большой шар с рисунком',

@@ -6,7 +6,7 @@ export class Filter{
 
      }
 
-     createFilteredData(data: mainData[]){
+     createFilteredData(data: mainData[]): mainData[]{
         let filteredData = data;
         let fullFilteredData: mainData[] = [];
         let colorFilteredData: mainData[] = [];

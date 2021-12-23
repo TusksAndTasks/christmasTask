@@ -20,55 +20,55 @@ export class Setter{
         let countNumber = document.querySelector('.counter-number') as HTMLElement;
         let yearNumber = document.querySelector('.year-number') as HTMLElement;
 
-             search.addEventListener('input', function(){setterConstructor.createCards(); });
+             search.addEventListener('input', function(): void {setterConstructor.createCards(); });
               
-             (ranges[0] as HTMLInputElement).addEventListener("input", function(){
+             (ranges[0] as HTMLInputElement).addEventListener("input", function(): void{
                 let value = (ranges[0] as HTMLInputElement).value;
                 (ranges[0] as HTMLInputElement).style.background = `linear-gradient(to right, #278D9F 0%, #278D9F ${+value * 8.3}%, #C4C4C4 ${+value * 8.3}%, #C4C4C4 100%)`;
                 countNumber.textContent = `${value}`;
                 setterConstructor.createCards(); 
              });
 
-             (ranges[1] as HTMLInputElement).addEventListener('input', function(){
+             (ranges[1] as HTMLInputElement).addEventListener('input', function(): void{
                 let value = (ranges[1] as HTMLInputElement).value;
                 (ranges[1] as HTMLInputElement).style.background = `linear-gradient(to right, #278D9F 0%, #278D9F ${(+value - 1940) * 1.25}%, #C4C4C4 ${(+value - 1940) * 1.25}%, #C4C4C4 100%)`;
                 yearNumber.textContent = `${value}`;
                 setterConstructor.createCards(); 
             });
 
-            sortingInput.addEventListener('change', function(){
+            sortingInput.addEventListener('change', function(): void{
                 setterConstructor.createCards(); 
             })
 
 
 
         shapeButtons.forEach((button: Element): void =>{
-            (button as HTMLElement).addEventListener('click', function(){
+            (button as HTMLElement).addEventListener('click', function(): void{
              button.classList.toggle('active');
              setterConstructor.createCards(); 
             }) 
         })
 
         colorButtons.forEach((button: Element): void => {
-            (button as HTMLElement).addEventListener('click', function(){
+            (button as HTMLElement).addEventListener('click', function(): void{
                 button.classList.toggle('active');
                 setterConstructor.createCards(); 
             })
         })
 
         sizeButtons.forEach((button: Element): void => {
-            (button as HTMLElement).addEventListener('click', function(){
+            (button as HTMLElement).addEventListener('click', function(): void{
                 button.classList.toggle('active');
                 setterConstructor.createCards(); 
             })
         })
 
-        favoriteCheckbox.addEventListener('change', function(){
+        favoriteCheckbox.addEventListener('change', function(): void{
             setterConstructor.createCards(); 
         })
 
 
-        resetButton.addEventListener('click', function(){
+        resetButton.addEventListener('click', function(): void{
     
             shapeButtons.forEach((button: Element): void => {
                 if((button as HTMLElement).classList.contains('active')){

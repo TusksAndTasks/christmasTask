@@ -9,7 +9,7 @@ export class Constructor {
         this.reader = new Reader;
     }
     
-    createCards(){
+    createCards(): void{
         let cardsContainer = (<HTMLElement>document.querySelector('.cards-container'));
         let content = '';
         let data = this.reader.read(); 

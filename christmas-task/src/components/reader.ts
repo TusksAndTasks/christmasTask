@@ -12,7 +12,7 @@ export class Reader {
        this.data = data 
     }
 
-    read(){
+    read(): mainData[]{
         let filter = new Filter;
         let sliderFilter = new SliderFilter;
         let search = new Search;
