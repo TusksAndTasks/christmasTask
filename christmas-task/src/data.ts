@@ -1,5 +1,4 @@
-import { mainData } from "./components/interfaces";
-
+import { mainData } from './components/interfaces';
 
 export const data: mainData[] = [
   {
