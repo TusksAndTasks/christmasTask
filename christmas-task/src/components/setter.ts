@@ -106,11 +106,25 @@ export class Setter {
   setTreeListeners() {
     const bgButton = Array.from(document.querySelectorAll('.background-button'));
     const treeContainer = document.querySelector('.tree-container') as HTMLElement;
+    const audio = document.querySelector('.audio') as HTMLElement;
+    const audioFile = new Audio();
+    let isPlay = false;
+    audioFile.src = './assets/audio/audio.mp3';
 
     bgButton.forEach((button: Element, index: number): void => {
       (button as HTMLElement).addEventListener('click', function () {
         treeContainer.style.backgroundImage = `url("./assets/bg/${index + 1}.jpg")`;
       });
+    });
+    audio.addEventListener('click', function () {
+      isPlay = !isPlay;
+      if (isPlay) {
+        audioFile.play();
+        audio.classList.add('active');
+      } else {
+        audioFile.pause();
+        audio.classList.remove('active');
+      }
     });
   }
 }
