@@ -102,4 +102,15 @@ export class Setter {
       setterConstructor.createCards();
     });
   }
+
+  setTreeListeners() {
+    const bgButton = Array.from(document.querySelectorAll('.background-button'));
+    const treeContainer = document.querySelector('.tree-container') as HTMLElement;
+
+    bgButton.forEach((button: Element, index: number): void => {
+      (button as HTMLElement).addEventListener('click', function () {
+        treeContainer.style.backgroundImage = `url("./assets/bg/${index + 1}.jpg")`;
+      });
+    });
+  }
 }
