@@ -1,18 +1,16 @@
-import { mainData } from './interfaces';
+import { MainData } from './interfaces';
 
 export class Filter {
-  constructor() {}
-
-  createFilteredData(data: mainData[]): mainData[] {
+  createFilteredData(data: MainData[]): MainData[] {
     let filteredData = data;
-    let fullFilteredData: mainData[] = [];
-    let colorFilteredData: mainData[] = [];
-    let sizeFilteredData: mainData[] = [];
-    let favFilteredData: mainData[] = [];
-    let colorCheck: boolean = false;
-    let sizeCheck: boolean = false;
-    let favCheck: boolean = false;
-    let shapeCheck: boolean = false;
+    let fullFilteredData: MainData[] = [];
+    const colorFilteredData: MainData[] = [];
+    const sizeFilteredData: MainData[] = [];
+    const favFilteredData: MainData[] = [];
+    let colorCheck = false;
+    let sizeCheck = false;
+    let favCheck = false;
+    let shapeCheck = false;
 
     const shapeButtons = Array.from(document.querySelectorAll('.form-buttons-container button'));
     const colorButtons = Array.from(document.querySelectorAll('.color-buttons-container button'));
@@ -44,7 +42,7 @@ export class Filter {
     if (shapeCheck) {
       shapeButtons.forEach((button: Element): void => {
         if ((button as HTMLElement).classList.contains('active')) {
-          filteredData = data.filter((infoCard: mainData) => infoCard.shape === (button as HTMLElement).dataset.value);
+          filteredData = data.filter((infoCard: MainData) => infoCard.shape === (button as HTMLElement).dataset.value);
           fullFilteredData.push(...filteredData);
         }
       });
@@ -55,7 +53,7 @@ export class Filter {
         colorButtons.forEach((button: Element): void => {
           if ((button as HTMLElement).classList.contains('active')) {
             filteredData = data.filter(
-              (infoCard: mainData) => infoCard.color === (button as HTMLElement).dataset.value,
+              (infoCard: MainData) => infoCard.color === (button as HTMLElement).dataset.value,
             );
             fullFilteredData.push(...filteredData);
           }
@@ -64,7 +62,7 @@ export class Filter {
         colorButtons.forEach((button: Element): void => {
           if ((button as HTMLElement).classList.contains('active')) {
             filteredData = fullFilteredData.filter(
-              (infoCard: mainData) => infoCard.color === (button as HTMLElement).dataset.value,
+              (infoCard: MainData) => infoCard.color === (button as HTMLElement).dataset.value,
             );
             colorFilteredData.push(...filteredData);
           }
@@ -77,7 +75,7 @@ export class Filter {
       if (fullFilteredData.length === 0) {
         sizeButtons.forEach((button: Element): void => {
           if ((button as HTMLElement).classList.contains('active')) {
-            filteredData = data.filter((infoCard: mainData) => infoCard.size === (button as HTMLElement).dataset.value);
+            filteredData = data.filter((infoCard: MainData) => infoCard.size === (button as HTMLElement).dataset.value);
             fullFilteredData.push(...filteredData);
           }
         });
@@ -85,7 +83,7 @@ export class Filter {
         sizeButtons.forEach((button: Element): void => {
           if ((button as HTMLElement).classList.contains('active')) {
             filteredData = fullFilteredData.filter(
-              (infoCard: mainData) => infoCard.size === (button as HTMLElement).dataset.value,
+              (infoCard: MainData) => infoCard.size === (button as HTMLElement).dataset.value,
             );
             sizeFilteredData.push(...filteredData);
           }
@@ -96,10 +94,10 @@ export class Filter {
 
     if (favCheck) {
       if (fullFilteredData.length === 0 && !shapeCheck && !colorCheck && !sizeCheck) {
-        filteredData = data.filter((infoCard: mainData) => infoCard.favorite === favoriteCheckbox.checked);
+        filteredData = data.filter((infoCard: MainData) => infoCard.favorite === favoriteCheckbox.checked);
         fullFilteredData.push(...filteredData);
       } else {
-        filteredData = fullFilteredData.filter((infoCard: mainData) => infoCard.favorite === favoriteCheckbox.checked);
+        filteredData = fullFilteredData.filter((infoCard: MainData) => infoCard.favorite === favoriteCheckbox.checked);
         favFilteredData.push(...filteredData);
 
         fullFilteredData = favFilteredData;

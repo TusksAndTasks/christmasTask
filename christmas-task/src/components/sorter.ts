@@ -1,14 +1,12 @@
-import { mainData } from './interfaces';
+import { MainData } from './interfaces';
 
 export class Sorter {
-  constructor() {}
-
-  createSortedData(currentData: mainData[]) {
+  createSortedData(currentData: MainData[]) {
     const sortingInput = document.querySelector('.sort') as HTMLSelectElement;
-    let sortedData: mainData[] = [];
+    let sortedData: MainData[] = [];
 
     if (sortingInput.value === 'sort-name-up') {
-      sortedData = currentData.sort(function (firstInfoCard: mainData, secondInfoCard: mainData): number {
+      sortedData = currentData.sort(function (firstInfoCard: MainData, secondInfoCard: MainData): number {
         if (
           firstInfoCard.name.toUpperCase().replace(/\s/g, '') < secondInfoCard.name.toUpperCase().replace(/\s/g, '')
         ) {
@@ -24,7 +22,7 @@ export class Sorter {
     }
 
     if (sortingInput.value === 'sort-name-down') {
-      sortedData = currentData.sort(function (firstInfoCard: mainData, secondInfoCard: mainData): number {
+      sortedData = currentData.sort(function (firstInfoCard: MainData, secondInfoCard: MainData): number {
         if (
           firstInfoCard.name.toUpperCase().replace(/\s/g, '') > secondInfoCard.name.toUpperCase().replace(/\s/g, '')
         ) {
@@ -40,7 +38,7 @@ export class Sorter {
     }
 
     if (sortingInput.value === 'sort-count-up') {
-      sortedData = currentData.sort(function (firstInfoCard: mainData, secondInfoCard: mainData): number {
+      sortedData = currentData.sort(function (firstInfoCard: MainData, secondInfoCard: MainData): number {
         if (+firstInfoCard.count < +secondInfoCard.count) {
           return -1;
         }
@@ -52,7 +50,7 @@ export class Sorter {
     }
 
     if (sortingInput.value === 'sort-count-down') {
-      sortedData = currentData.sort(function (firstInfoCard: mainData, secondInfoCard: mainData): number {
+      sortedData = currentData.sort(function (firstInfoCard: MainData, secondInfoCard: MainData): number {
         if (+firstInfoCard.count > +secondInfoCard.count) {
           return -1;
         }

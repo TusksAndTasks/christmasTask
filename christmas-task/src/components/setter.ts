@@ -1,8 +1,6 @@
 import { Constructor } from './constructor';
 
 export class Setter {
-  constructor() {}
-
   setListeners() {
     const setterConstructor = new Constructor();
     const shapeButtons = Array.from(document.querySelectorAll('.form-buttons-container button'));
@@ -13,16 +11,16 @@ export class Setter {
     const resetButton = document.querySelector('.reset') as HTMLElement;
     const search = document.querySelector('.search') as HTMLInputElement;
 
-    let ranges = Array.from(document.querySelectorAll('input[type=range]'));
-    let countNumber = document.querySelector('.counter-number') as HTMLElement;
-    let yearNumber = document.querySelector('.year-number') as HTMLElement;
+    const ranges = Array.from(document.querySelectorAll('input[type=range]'));
+    const countNumber = document.querySelector('.counter-number') as HTMLElement;
+    const yearNumber = document.querySelector('.year-number') as HTMLElement;
 
     search.addEventListener('input', function (): void {
       setterConstructor.createCards();
     });
 
     (ranges[0] as HTMLInputElement).addEventListener('input', function (): void {
-      let value = (ranges[0] as HTMLInputElement).value;
+      const value = (ranges[0] as HTMLInputElement).value;
       (ranges[0] as HTMLInputElement).style.background = `linear-gradient(to right, #278D9F 0%, #278D9F ${
         +value * 8.3
       }%, #C4C4C4 ${+value * 8.3}%, #C4C4C4 100%)`;
@@ -31,7 +29,7 @@ export class Setter {
     });
 
     (ranges[1] as HTMLInputElement).addEventListener('input', function (): void {
-      let value = (ranges[1] as HTMLInputElement).value;
+      const value = (ranges[1] as HTMLInputElement).value;
       (ranges[1] as HTMLInputElement).style.background = `linear-gradient(to right, #278D9F 0%, #278D9F ${
         (+value - 1940) * 1.25
       }%, #C4C4C4 ${(+value - 1940) * 1.25}%, #C4C4C4 100%)`;
@@ -92,12 +90,14 @@ export class Setter {
       }
 
       (ranges[0] as HTMLInputElement).value = '12';
-      (ranges[0] as HTMLInputElement).style.background = `linear-gradient(to right, #278D9F 0%, #278D9F 100%, #C4C4C4 100%, #C4C4C4 100%)`;
-      countNumber.textContent = `12`;
+      (ranges[0] as HTMLInputElement).style.background =
+        'linear-gradient(to right, #278D9F 0%, #278D9F 100%, #C4C4C4 100%, #C4C4C4 100%)';
+      countNumber.textContent = '12';
 
       (ranges[1] as HTMLInputElement).value = '2020';
-      (ranges[1] as HTMLInputElement).style.background = `linear-gradient(to right, #278D9F 0%, #278D9F 100%, #C4C4C4 100%, #C4C4C4 100%)`;
-      yearNumber.textContent = `2020`;
+      (ranges[1] as HTMLInputElement).style.background =
+        'linear-gradient(to right, #278D9F 0%, #278D9F 100%, #C4C4C4 100%, #C4C4C4 100%)';
+      yearNumber.textContent = '2020';
 
       setterConstructor.createCards();
     });
