@@ -157,9 +157,9 @@ export class Setter {
         (document.getElementById(idItem) as HTMLElement).style.left = '5px';
         (document.getElementById(idItem) as HTMLElement).style.top = '5px';
         (document.getElementById(idItem) as HTMLElement).style.zIndex = '0';
-        toyBoxes[+idItem.slice(0, 1) - 1].append(document.getElementById(idItem) as HTMLElement);
-        toyCounters[+idItem.slice(0, 1) - 1].textContent = (
-          toyBoxes[+idItem.slice(0, 1) - 1].childNodes.length - 1
+        toyBoxes[+idItem.split('-')[0] - 1].append(document.getElementById(idItem) as HTMLElement);
+        toyCounters[+idItem.split('-')[0] - 1].textContent = (
+          toyBoxes[+idItem.split('-')[0] - 1].childNodes.length - 1
         ).toString();
       } else {
         (event.target as HTMLElement).append(document.getElementById(idItem) as HTMLElement);
@@ -167,8 +167,8 @@ export class Setter {
           event.pageX - (document.getElementById(idItem) as HTMLElement).offsetWidth / 2 + 'px';
         (document.getElementById(idItem) as HTMLElement).style.top =
           event.pageY - (document.getElementById(idItem) as HTMLElement).offsetHeight / 2 + 'px';
-        toyCounters[+idItem.slice(0, 1) - 1].textContent = (
-          +(toyCounters[+idItem.slice(0, 1) - 1].textContent as string) - 1
+        toyCounters[+idItem.split('-')[0] - 1].textContent = (
+          +(toyCounters[+idItem.split('-')[0] - 1].textContent as string) - 1
         ).toString();
       }
     }
