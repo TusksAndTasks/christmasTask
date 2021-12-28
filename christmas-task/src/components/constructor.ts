@@ -58,9 +58,9 @@ export class Constructor {
 
     toyBoxes.forEach((toyBox: Element, index: number) => {
       for (let i = 0; i < +((toyCounters[index] as HTMLElement).textContent as string); i++) {
-        (toyBox as HTMLElement).innerHTML += `<img class="fav-toy" src="/assets/toys/${
+        (toyBox as HTMLElement).innerHTML += `<img class="fav-toy" src="assets/toys/${
           (toyBox as HTMLElement).dataset.value
-        }.png" id="${index + 1}-${i + 1}">`;
+        }.png" id="${index + 1}-${i + 1}" draggable="true">`;
       }
     });
   }

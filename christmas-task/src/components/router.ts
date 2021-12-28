@@ -130,9 +130,10 @@ export class Router {
          </div>
       </div>
       <div class="tree-container">
-         <img class="tree" src="/assets/tree/1.png" usemap="#tree-map">
+         <img class="tree" src="assets/tree/1.png" usemap="#tree-map">
          <map name="tree-map">
-    <area coords="0,565,38,678,148,699,224,703,356,699,466,672,488,596,486,545,458,519,445,460,427,396,414,346,393,229,349,136,286,42,251,3,201,57,98,221,23,447,50,337" shape="poly">
+    <area coords="1,561,38,620,78,654,138,687,203,700,283,693,356,696,399,679,449,657,465,626,475,585,471,539,452,510,445,463,426,422,420,359,396,303,392,242,350,183,336,133,302,59,267,10,227,14,163,132,24,438" shape="poly">
+    </area>
 </map>
       </div>
       <div class="tree-toys-container">
@@ -149,9 +150,10 @@ export class Router {
         </div>
       </div>
    </div>`;
-        setter.setTreeListeners();
         constructor.crateFavCards();
         constructor.createFavToys();
+        setter.setTreeListeners();
+        setter.setDragListeners();
         break;
     }
   }

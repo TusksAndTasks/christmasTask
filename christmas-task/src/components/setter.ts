@@ -130,8 +130,44 @@ export class Setter {
     });
     treeButtons.forEach((button: Element, index: number): void => {
       (button as HTMLElement).addEventListener('click', function () {
-        tree.src = `/assets/tree/${index + 1}.png`;
+        tree.src = `assets/tree/${index + 1}.png`;
       });
+    });
+  }
+
+  setDragListeners() {
+    const draggableObjects = Array.from(document.querySelectorAll('[draggable]'));
+    const dropZone = document.querySelector('area') as HTMLElement;
+    const toyCounters = Array.from(document.querySelectorAll('.fav-toy-counter'));
+
+    function allowDrop(event: DragEvent): void {
+      event.preventDefault();
+      console.log(1);
+    }
+
+    function drag(event: DragEvent): void {
+      event.dataTransfer?.setData('id', (event.target as HTMLElement).id);
+      (event.target as HTMLElement).style.zIndex = '23';
+    }
+
+    function drop(event: DragEvent): void {
+      const idItem = event.dataTransfer?.getData('id') as string;
+      (event.target as HTMLElement).append(document.getElementById(idItem) as HTMLElement);
+      (document.getElementById(idItem) as HTMLElement).style.left =
+        event.pageX - (document.getElementById(idItem) as HTMLElement).offsetWidth / 2 + 'px';
+      (document.getElementById(idItem) as HTMLElement).style.top =
+        event.pageY - (document.getElementById(idItem) as HTMLElement).offsetHeight / 2 + 'px';
+      toyCounters[+idItem.slice(0, 1) - 1].textContent = (
+        +(toyCounters[+idItem.slice(0, 1) - 1].textContent as string) - 1
+      ).toString();
+    }
+
+    dropZone.addEventListener('dragover', allowDrop);
+    dropZone.addEventListener('drop', drop);
+
+    draggableObjects.forEach((toy: Element): void => {
+      (toy as HTMLElement).addEventListener('dragstart', drag);
+      console.log('1');
     });
   }
 }
