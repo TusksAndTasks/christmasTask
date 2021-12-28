@@ -23,4 +23,10 @@ export class Reader {
     currentData = sorter.createSortedData(currentData);
     return currentData;
   }
+
+  readFav(): MainData[] {
+    const filter = new Filter();
+    const currentFaves: MainData[] = filter.createFavData(this.data);
+    return currentFaves;
+  }
 }

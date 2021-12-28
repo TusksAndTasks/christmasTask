@@ -110,4 +110,9 @@ export class Filter {
       return fullFilteredData;
     }
   }
+
+  createFavData(data: MainData[]): MainData[] {
+    const filteredFav: MainData[] = data.filter((infoCard: MainData) => infoCard.favorite === true);
+    return filteredFav;
+  }
 }

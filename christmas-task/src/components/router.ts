@@ -130,13 +130,15 @@ export class Router {
          </div>
       </div>
       <div class="tree-container">
-         <img class="tree" src="/assets/tree/1.png">
+         <img class="tree" src="/assets/tree/1.png" usemap="#tree-map">
+         <map name="tree-map">
+    <area coords="0,565,38,678,148,699,224,703,356,699,466,672,488,596,486,545,458,519,445,460,427,396,414,346,393,229,349,136,286,42,251,3,201,57,98,221,23,447,50,337" shape="poly">
+</map>
       </div>
       <div class="tree-toys-container">
         <div class="fav-box">
          <p>Выберите игрушку</p>
-         <div class="fav-toys-box">
-         </div>
+         <div class="fav-toys-box"></div>
         </div>
         <p>Созданные ёлки</p>
         <div class="finished-trees">
@@ -148,6 +150,8 @@ export class Router {
       </div>
    </div>`;
         setter.setTreeListeners();
+        constructor.crateFavCards();
+        constructor.createFavToys();
         break;
     }
   }

@@ -1,3 +1,4 @@
+import { MainData } from './interfaces';
 import { Reader } from './reader';
 
 export class Constructor {
@@ -41,5 +42,26 @@ export class Constructor {
     }
 
     cardsContainer.innerHTML = content;
+  }
+
+  crateFavCards(): void {
+    const favoriteBox = document.querySelector('.fav-toys-box') as HTMLElement;
+    const favData = this.reader.readFav();
+    favData.forEach((infoCard: MainData): void => {
+      favoriteBox.innerHTML += `<div class="fav-toy-mini-box" data-value="${infoCard.num}"><div class="fav-toy-counter">${infoCard.count}</div></div>`;
+    });
+  }
+
+  createFavToys(): void {
+    const toyBoxes = Array.from(document.querySelectorAll('.fav-toy-mini-box'));
+    const toyCounters = Array.from(document.querySelectorAll('.fav-toy-counter'));
+
+    toyBoxes.forEach((toyBox: Element, index: number) => {
+      for (let i = 0; i < +((toyCounters[index] as HTMLElement).textContent as string); i++) {
+        (toyBox as HTMLElement).innerHTML += `<img class="fav-toy" src="/assets/toys/${
+          (toyBox as HTMLElement).dataset.value
+        }.png" id="${index + 1}-${i + 1}">`;
+      }
+    });
   }
 }
