@@ -168,7 +168,7 @@ export class Setter {
         (document.getElementById(idItem) as HTMLElement).style.top =
           event.pageY - (document.getElementById(idItem) as HTMLElement).offsetHeight / 2 + 'px';
         toyCounters[+idItem.split('-')[0] - 1].textContent = (
-          +(toyCounters[+idItem.split('-')[0] - 1].textContent as string) - 1
+          toyBoxes[+idItem.split('-')[0] - 1].childNodes.length - 1
         ).toString();
       }
     }
