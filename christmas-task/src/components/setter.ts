@@ -109,6 +109,8 @@ export class Setter {
     const audio = document.querySelector('.audio') as HTMLElement;
     const audioFile = new Audio();
     let isPlay = false;
+    const treeButtons = Array.from(document.querySelectorAll('.tree-button'));
+    const tree = document.querySelector('.tree') as HTMLImageElement;
     audioFile.src = './assets/audio/audio.mp3';
 
     bgButton.forEach((button: Element, index: number): void => {
@@ -125,6 +127,11 @@ export class Setter {
         audioFile.pause();
         audio.classList.remove('active');
       }
+    });
+    treeButtons.forEach((button: Element, index: number): void => {
+      (button as HTMLElement).addEventListener('click', function () {
+        tree.src = `/assets/tree/${index + 1}.png`;
+      });
     });
   }
 }
