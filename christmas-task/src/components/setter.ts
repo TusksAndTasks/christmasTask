@@ -139,6 +139,7 @@ export class Setter {
     const draggableObjects = Array.from(document.querySelectorAll('[draggable]'));
     const dropZone = document.querySelector('area') as HTMLElement;
     const toyCounters = Array.from(document.querySelectorAll('.fav-toy-counter'));
+    const toyBoxes = Array.from(document.querySelectorAll('.fav-toy-mini-box'));
 
     function allowDrop(event: DragEvent): void {
       event.preventDefault();
@@ -152,18 +153,28 @@ export class Setter {
 
     function drop(event: DragEvent): void {
       const idItem = event.dataTransfer?.getData('id') as string;
-      (event.target as HTMLElement).append(document.getElementById(idItem) as HTMLElement);
-      (document.getElementById(idItem) as HTMLElement).style.left =
-        event.pageX - (document.getElementById(idItem) as HTMLElement).offsetWidth / 2 + 'px';
-      (document.getElementById(idItem) as HTMLElement).style.top =
-        event.pageY - (document.getElementById(idItem) as HTMLElement).offsetHeight / 2 + 'px';
-      toyCounters[+idItem.slice(0, 1) - 1].textContent = (
-        +(toyCounters[+idItem.slice(0, 1) - 1].textContent as string) - 1
-      ).toString();
+      if (event.target != dropZone) {
+        (document.getElementById(idItem) as HTMLElement).style.left = '5px';
+        (document.getElementById(idItem) as HTMLElement).style.top = '5px';
+        (document.getElementById(idItem) as HTMLElement).style.zIndex = '0';
+        toyBoxes[+idItem.slice(0, 1) - 1].append(document.getElementById(idItem) as HTMLElement);
+        toyCounters[+idItem.slice(0, 1) - 1].textContent = (
+          toyBoxes[+idItem.slice(0, 1) - 1].childNodes.length - 1
+        ).toString();
+      } else {
+        (event.target as HTMLElement).append(document.getElementById(idItem) as HTMLElement);
+        (document.getElementById(idItem) as HTMLElement).style.left =
+          event.pageX - (document.getElementById(idItem) as HTMLElement).offsetWidth / 2 + 'px';
+        (document.getElementById(idItem) as HTMLElement).style.top =
+          event.pageY - (document.getElementById(idItem) as HTMLElement).offsetHeight / 2 + 'px';
+        toyCounters[+idItem.slice(0, 1) - 1].textContent = (
+          +(toyCounters[+idItem.slice(0, 1) - 1].textContent as string) - 1
+        ).toString();
+      }
     }
 
-    dropZone.addEventListener('dragover', allowDrop);
-    dropZone.addEventListener('drop', drop);
+    document.addEventListener('dragover', allowDrop);
+    document.addEventListener('drop', drop);
 
     draggableObjects.forEach((toy: Element): void => {
       (toy as HTMLElement).addEventListener('dragstart', drag);
